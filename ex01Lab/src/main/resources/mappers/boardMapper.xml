@@ -81,7 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <sql id="search">
  <if test="searchType != null" > 
-   <if test="searchType == 't'.toString()">
+   <if test="searchType == 't'.toString()">                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
      and title like CONCAT('%', #{keyword}, '%')
    </if>
    <if test="searchType == 'c'.toString()">

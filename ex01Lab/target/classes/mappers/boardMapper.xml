@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
 
  <update id="update">
- update tbl_board set title =#{title}, content =#{content} 
+ update tbl_board set title =#{title}, content =#{content} <!-- //writer는 수정 반영 안됨 -->
  where bno = #{bno}
  </update>
 
@@ -60,6 +60,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  order by bno desc, regdate desc
  limit #{pageStart}, #{perPageNum}
  ]]>  
+ <!-- #{pageStart} = gri.get.pagestart() -->
+ <!-- #{perPageNum} = gri.get.perPageNum() -->
  </select>
 
 
@@ -79,7 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <sql id="search">
  <if test="searchType != null" > 
-   <if test="searchType == 't'.toString()">
+   <if test="searchType == 't'.toString()">                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
      and title like CONCAT('%', #{keyword}, '%')
    </if>
    <if test="searchType == 'c'.toString()">
